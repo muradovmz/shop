@@ -48,7 +48,7 @@ namespace API.Controllers
 
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponce), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);
@@ -56,7 +56,7 @@ namespace API.Controllers
 
             if (product == null)
             {
-                return NotFound(new ApiResponce(404));
+                return NotFound(new ApiResponse(404));
             }
             return _mapper.Map<Product, ProductToReturnDto>(product);
         }
