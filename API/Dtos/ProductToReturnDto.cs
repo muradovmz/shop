@@ -1,4 +1,4 @@
-using Core.Entities;
+using System.Collections.Generic;
 
 namespace API.Dtos
 {
@@ -11,5 +11,6 @@ namespace API.Dtos
         public string PictureUrl { get; set; }
         public string ProductType { get; set; }
         public string ProductBrand { get; set; }
+        public IEnumerable<PhotoToReturnDto> Photos { get; set; }
     }
 }
